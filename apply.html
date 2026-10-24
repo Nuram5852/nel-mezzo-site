@@ -1477,7 +1477,7 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
   });
 
   // send a form to the Google Sheet (Apps Script web app); the hidden bot-field catches spam bots
-  var FORMS_URL = 'PASTE_WEB_APP_URL_HERE';
+  var FORMS_URL = 'https://script.google.com/macros/s/AKfycbzdW1SDZU2dfYzwAAUpQ3HsutQGnKLVkATQsgnxVCltzHbbxqIV2m8xSoMPgCxr5Mui/exec';
   function sendForm(type, form, data) {
     var trap = form.elements['bot-field'];
     var body = new URLSearchParams(Object.assign({ type: type, 'bot-field': trap ? trap.value : '' }, data));
@@ -1530,7 +1530,7 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
   // application form, sent to the Google Sheet
   var form = document.getElementById('app-form'), msg = document.getElementById('app-msg'), btn = document.getElementById('app-btn');
   // send a form to the Google Sheet (Apps Script web app); the hidden bot-field catches spam bots
-  var FORMS_URL = 'PASTE_WEB_APP_URL_HERE';
+  var FORMS_URL = 'https://script.google.com/macros/s/AKfycbzdW1SDZU2dfYzwAAUpQ3HsutQGnKLVkATQsgnxVCltzHbbxqIV2m8xSoMPgCxr5Mui/exec';
   function sendForm(type, form, data) {
     var trap = form.elements['bot-field'];
     var body = new URLSearchParams(Object.assign({ type: type, 'bot-field': trap ? trap.value : '' }, data));
