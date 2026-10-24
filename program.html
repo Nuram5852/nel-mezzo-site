@@ -1007,6 +1007,7 @@ figure.feature-fig { margin: 0; min-width: 0; }
           <label for="fb-email"><span>Email</span><input id="fb-email" name="email" type="email" autocomplete="email" required></label>
         </div>
         <label for="fb-text"><span>Your feedback</span><textarea id="fb-text" name="text" required></textarea></label>
+        <label class="consent"><input type="checkbox" name="updates" value="Yes"> <span>Keep me updated about new programs and dates</span></label>
         <button class="app-submit" id="fb-btn" type="submit">Submit</button>
         <p class="app-msg" id="fb-msg" role="status" aria-live="polite"></p>
       </form>
@@ -1649,10 +1650,10 @@ figure.feature-fig { margin: 0; min-width: 0; }
     if (!val('name')) { msg.textContent = 'Please enter your name.'; form.elements.name.focus(); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))) { msg.textContent = 'Please enter a valid email address.'; form.elements.email.focus(); return; }
     if (!val('text')) { msg.textContent = 'Please write your feedback.'; form.elements.text.focus(); return; }
-    var entry = { name: val('name'), email: val('email'), text: val('text'), at: new Date().toISOString() };
+    var entry = { name: val('name'), email: val('email'), text: val('text'), updates: form.elements.updates.checked ? 'Yes' : 'No', at: new Date().toISOString() };
     btn.disabled = true; msg.className = 'app-msg'; msg.textContent = 'Sending…';
-    // the sheet also adds the email to the sign-ups if it isn't there yet
-    sendForm('feedback', form, { name: entry.name, email: entry.email, text: entry.text }).then(function () {
+    // the sheet adds the email to the sign-ups only if they ticked "Keep me updated"
+    sendForm('feedback', form, { name: entry.name, email: entry.email, text: entry.text, updates: entry.updates }).then(function () {
     }).then(function () {
       form.reset();
       msg.className = 'app-msg';

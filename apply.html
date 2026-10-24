@@ -934,6 +934,7 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
           <label><span>Is there anything in particular you would be interested in doing during the program?</span><textarea name="prefs"></textarea></label>
         </fieldset>
 
+        <label class="consent"><input type="checkbox" name="updates" value="Yes"> <span>Keep me updated about new programs and dates</span></label>
         <button class="app-submit" id="app-btn" type="submit">Submit application</button>
         <p class="app-msg" id="app-msg" role="status"></p>
       </form>
@@ -1562,8 +1563,9 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
     var row = { at: new Date().toISOString() };
     ['first', 'last', 'email', 'phone', 'city', 'occupation', 'level', 'studied', 'rome', 'withfamily', 'room', 'diet', 'why', 'heard', 'prefs'].forEach(function (k) { row[k] = val(k); });
     row.family = fam ? val('family') : '0';
+    row.updates = form.elements.updates.checked ? 'Yes' : 'No';
     btn.disabled = true; msg.className = 'app-msg'; msg.textContent = 'Sending…';
-    // the sheet keeps one application per email and adds new emails to the sign-ups
+    // the sheet keeps one application per email; "Keep me updated" adds the email to the sign-ups
     sendForm('application', form, row).then(function () {
       location.href = 'thanks.html';
     }).catch(function (err) {
