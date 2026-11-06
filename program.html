@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Learn Italian in Rome · Summer 2027 Immersion · Nel Mezzo</title>
 <!-- seo -->
-<meta name="description" content="Two weeks of Italian in Rome and a countryside villa, Aug 1–15, 2027. 60+ hours of classes and site visits for fluency and professional development.">
+<meta name="description" content="Twelve days of Italian in Rome, Aug 1–12, 2027. 60+ hours of classes and site visits for fluency and professional development.">
 <link rel="canonical" href="https://nelmezzoitalia.com/program.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nel Mezzo">
 <meta property="og:title" content="Learn Italian in Rome · Summer 2027 Immersion · Nel Mezzo">
-<meta property="og:description" content="Two weeks of Italian in Rome and a countryside villa, Aug 1–15, 2027. 60+ hours of classes and site visits for fluency and professional development.">
+<meta property="og:description" content="Twelve days of Italian in Rome, Aug 1–12, 2027. 60+ hours of classes and site visits for fluency and professional development.">
 <meta property="og:url" content="https://nelmezzoitalia.com/program.html">
 <meta property="og:image" content="https://nelmezzoitalia.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationEvent", "name": "Nel Mezzo Summer Immersion 2027", "description": "Two weeks of Italian in Rome and a countryside villa, Aug 1–15, 2027. 60+ hours of classes and site visits for fluency and professional development.", "startDate": "2027-08-01", "endDate": "2027-08-15", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "it", "maximumAttendeeCapacity": 15, "image": "https://nelmezzoitalia.com/og-image.jpg", "url": "https://nelmezzoitalia.com/program.html", "location": {"@type": "Place", "name": "Rome and the Italian countryside", "address": {"@type": "PostalAddress", "addressLocality": "Rome", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Nel Mezzo", "url": "https://nelmezzoitalia.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationEvent", "name": "Nel Mezzo Summer Immersion 2027", "description": "Twelve days of Italian in Rome, Aug 1–12, 2027. 60+ hours of classes and site visits for fluency and professional development.", "startDate": "2027-08-01", "endDate": "2027-08-12", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "inLanguage": "it", "maximumAttendeeCapacity": 15, "image": "https://nelmezzoitalia.com/og-image.jpg", "url": "https://nelmezzoitalia.com/program.html", "location": {"@type": "Place", "name": "Rome", "address": {"@type": "PostalAddress", "addressLocality": "Rome", "addressCountry": "IT"}}, "organizer": {"@type": "Organization", "name": "Nel Mezzo", "url": "https://nelmezzoitalia.com/"}}</script>
 <!-- /seo -->
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="favicon-192.png" sizes="192x192">
@@ -379,6 +379,29 @@ figure.feature-fig { margin: 0; min-width: 0; }
 .faq summary::after { content: "+"; font: 300 1.6rem/1 var(--serif); transition: transform .2s; }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq summary:hover { color: var(--ink-muted); }
+/* program hero: rooftop photo with the About text sliding in over its right 40% */
+.hero-about { display: grid; }
+.hero-about > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 62%; }
+.hero-panel { position: relative; justify-self: end; width: 35%; min-height: min(70vh, 680px); display: grid; align-content: center; gap: 14px;
+  padding: clamp(20px, 3vw, 52px); background: rgba(12, 36, 58, .5); color: var(--bar-ink); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  animation: panel-in 2.4s ease .3s both; }
+.hero-panel .section-label { margin: 0; color: var(--bar-ink); }
+.hero-panel .lede { font-size: clamp(1.6rem, 1rem + 1.6vw, 2.6rem); font-weight: 500; line-height: 1.25; max-width: none; color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .55), 0 0 18px rgba(0, 0, 0, .35); }
+.hero-panel p { font-size: clamp(.98rem, .85rem + .25vw, 1.1rem); line-height: 1.5; }
+@keyframes panel-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hero-panel { animation: none; } }
+@media (max-width: 959px) {
+  .hero-about > img { position: static; height: auto; }
+  .hero-panel { min-height: 0; width: auto; justify-self: stretch; background: rgb(12, 36, 58); padding: 28px max(16px, env(safe-area-inset-left, 0px)); }
+}
+.reveal-sec summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 14px; }
+.reveal-sec summary::-webkit-details-marker { display: none; }
+.reveal-sec summary .section-label { margin: 0; }
+.reveal-sec summary::after { content: "+"; font: 300 1.9rem/1 var(--serif); transition: transform .2s; }
+.reveal-sec[open] summary::after { transform: rotate(45deg); }
+.reveal-sec summary:hover { color: var(--ink-muted); }
+.reveal-sec[open] summary { margin-bottom: 16px; }
+.reveal-sec .sub-h { font: 600 1.25rem/1 var(--label); text-transform: uppercase; letter-spacing: .05em; margin: 0; }
 .faq details p { padding-bottom: 18px; max-width: 62ch; }
 .reserve { display: grid; gap: 14px; justify-items: start; }
 .reserve h3 { font: 400 clamp(1.7rem, 1.3rem + 1.2vw, 2.4rem)/1.1 var(--display); }
@@ -387,7 +410,7 @@ figure.feature-fig { margin: 0; min-width: 0; }
 <body>
 <div class="bar">
   <div class="wrap">
-    <a href="program.html">Summer 2027 · Two weeks in Rome and the Italian Countryside · August 1–15</a>
+    <a href="program.html">Summer 2027 · Twelve days of Italian in Rome · August 1–12</a>
   </div>
 </div>
 
@@ -882,23 +905,33 @@ figure.feature-fig { margin: 0; min-width: 0; }
   <div class="wrap crumb caps"><a href="index.html">‹ Programs</a></div>
 
   <div class="wrap page-title">
-    <span class="caps">August 1–15, 2027 · Rome and the Italian Countryside</span>
+    <span class="caps">August 1–12, 2027 · Rome</span>
     <div class="title-row">
       <h1>Summer Immersion 2027</h1>
       <a class="apply" href="apply.html">Apply now</a>
     </div>
-    <span class="sub">Two weeks of full Italian immersion</span>
+    <span class="sub">Twelve days of full Italian immersion</span>
   </div>
 
-  <div class="page-hero">
-    <img src="collage-2.webp" alt="Collage: a Piranesi etching of an arch, a beach scene from Fellini, a fresco of Saint Catherine of Alexandria, Nanni Moretti in a swim cap, a still from C'è ancora domani, and Titian's portrait of Paul III Farnese" style="aspect-ratio: 2400 / 800">
+  <div class="page-hero hero-about">
+    <img src="rome-rooftops.webp" alt="Black and white view over the rooftops and domes of Rome, with St. Peter's in the distance" width="1600" height="1060">
+    <div class="hero-panel">
+      <p class="lede"><i>Nel Mezzo</i> is a summer Italian intensive program designed for intermediate to advanced Italian speakers.</p>
+    </div>
   </div>
 
   <section aria-labelledby="about-h">
     <div class="wrap prose-block">
       <h2 class="section-label" id="about-h">The program</h2>
-      <p class="lede">Nel Mezzo&rsquo;s Summer Italian intensive is designed for intermediate to advanced Italian speakers.</p>
-      <p>Whether a humanities teacher who has taken students to Italy many times and is looking for professional development, a PhD student looking to sharpen their Italian skills for their comps, or any well-seasoned traveller looking to dive deeper into Italian literature and culture, this program promises to be a fantastic time. Held over two weeks and more than 60 contact hours, Italian is the language of everything: classes and seminars, site visits, meals, conversations with locals, and friendships with the other participants. Our goal is measurable progress in fluency. To achieve this, we are looking to make as immersive an environment as possible. We read Italian literature in the places where it was written or set, explore corners of Rome most visitors never find, and, most importantly, we delight in each linguistic adventure.</p>
+      <p>Whether a humanities teacher who has taken students to Italy many times and is looking for professional development, a PhD student looking to sharpen their Italian skills for their comps, or any well-seasoned traveller looking to dive deeper into Italian literature and culture, this program promises to be a fantastic time. Held over twelve days and more than 60 contact hours, Italian is the language of everything: classes and seminars, site visits, meals, conversations with locals, and friendships with the other participants. Our goal is measurable progress in fluency. To achieve this, we are looking to make as immersive an environment as possible. We read Italian literature in the places where it was written or set, explore corners of Rome most visitors never find, and, most importantly, we delight in each linguistic adventure.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="who-h">
+    <div class="wrap prose-block">
+      <h2 class="section-label" id="who-h">Who is it for?</h2>
+      <p>The program is for Italian learners at the B1 level and above who already have a strong command of the language, and are looking to develop their vocabulary, grammar, and cultural knowledge.</p>
+      <p>Ideal candidates are those seeking a near fully immersive experience.</p>
     </div>
   </section>
 
@@ -907,76 +940,78 @@ figure.feature-fig { margin: 0; min-width: 0; }
       <h2 class="section-label" id="sched-h">Day by day</h2>
 
       <div class="week-head">
-        <span class="caps muted">Week one · August 1–8</span>
+        <span class="caps muted">August 1–12</span>
         <h3>Rome</h3>
-        <p class="rhythm">A typical day: a site visit from 10 to 1, lunch on your own, class from 3:00 to 6:30, then dinner on your own followed by an evening activity.</p>
+        <p class="rhythm">A typical day: class from 9 to 1, lunch on your own, a site visit from 3 to 5 or 6, then dinner on your own followed by an evening activity. Some days are day trips instead.</p>
       </div>
       <ol class="days">
-        <li><span class="d">Sun, Aug 1</span><span class="what">Arrival. Welcome aperitivo and dinner with the group.</span></li>
-        <li><span class="d">Mon, Aug 2</span><span class="what">Morning site visit, afternoon class, evening activity.</span></li>
-        <li><span class="d">Tue, Aug 3</span><span class="what">Morning site visit, afternoon class, evening activity.</span></li>
+        <li><span class="d">Sun, Aug 1</span><span class="what">Arrival. Welcome aperitivo with the group.</span></li>
+        <li><span class="d">Mon, Aug 2</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
+        <li><span class="d">Tue, Aug 3</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
         <li><span class="d">Wed, Aug 4</span><span class="what">Day trip.</span></li>
-        <li><span class="d">Thu, Aug 5</span><span class="what">Morning site visit, afternoon class, evening activity.</span></li>
+        <li><span class="d">Thu, Aug 5</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
         <li><span class="d">Fri, Aug 6</span><span class="what">Beach day.</span></li>
-        <li><span class="d">Sat, Aug 7</span><span class="what">Morning class, afternoon free.</span></li>
+        <li><span class="d">Sat, Aug 7</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
+        <li><span class="d">Sun, Aug 8</span><span class="what">Day trip.</span></li>
+        <li><span class="d">Mon, Aug 9</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
+        <li><span class="d">Tue, Aug 10</span><span class="what">Day trip.</span></li>
+        <li><span class="d">Wed, Aug 11</span><span class="what">Morning class, afternoon site visit, a last dinner together.</span></li>
+        <li><span class="d">Thu, Aug 12</span><span class="what">Departure.</span></li>
       </ol>
-      <p class="note">Site visits are currently TBD. We will of course be seeing some of the must-see spots in Rome, but we would also like to focus in on more of the off the beaten path sites. Some potential ideas include: Villa Farnesina, the Botanical Gardens, a tour of the Risorgimento in Rome, Pasolini in Rome, Romanesco poets, etc.</p>
-
-      <div class="week-head" style="margin-top:40px">
-        <span class="caps muted">Week two · August 8–15</span>
-        <h3>The villa</h3>
-        <p class="rhythm">A villa with a pool in the Italian countryside (exact location TBD). Free mornings, afternoon classes, and evening activities. Meals all together.</p>
-      </div>
-      <ol class="days">
-        <li><span class="d">Sun, Aug 8</span><span class="what">Transfer from Rome by private coach, then class.</span></li>
-        <li><span class="d">Mon, Aug 9</span><span class="what">Free morning, afternoon class, evening activity.</span></li>
-        <li><span class="d">Tue, Aug 10</span><span class="what">Free morning, afternoon class, evening activity.</span></li>
-        <li><span class="d">Wed, Aug 11</span><span class="what">Day trip.</span></li>
-        <li><span class="d">Thu, Aug 12</span><span class="what">Free morning, afternoon class, evening activity.</span></li>
-        <li><span class="d">Fri, Aug 13</span><span class="what">Day trip.</span></li>
-        <li><span class="d">Sat, Aug 14</span><span class="what">Free morning, afternoon class, a last dinner and evening together.</span></li>
-        <li><span class="d">Sun, Aug 15</span><span class="what">Departure.</span></li>
-      </ol>
-      <p class="note">Day trips are TBD, but some possibilities are: Orvieto, Bomarzo Gardens, Lake Trasimeno, Assisi, etc.</p>
+      <p class="note">Site visits are currently TBD. We will of course be seeing some of the must-see spots in Rome, but we would also like to focus in on more of the off the beaten path sites. Some potential ideas include: Villa Farnesina, the Botanical Gardens, a tour of the Risorgimento in Rome, Pasolini in Rome, Romanesco poets, etc. Day trips are also TBD; possibilities include Subiaco, Tivoli and Orvieto.</p>
     </div>
   </section>
 
   <section aria-labelledby="price-h">
-    <div class="wrap reserve">
-      <h2 class="section-label" id="price-h">Price and reserving</h2>
+    <div class="wrap">
+      <details class="reveal-sec">
+      <summary><h2 class="section-label" id="price-h">Dates and Price</h2></summary>
       <div class="reserve-row">
-        <div>
-          <h3>Price per person: <span class="tbd">to be announced</span></h3>
+        <div style="display:grid;gap:12px;max-width:66ch;padding-bottom:8px">
+          <h3 class="sub-h">Dates</h3>
+          <p>Arrival day is Sunday, August 1st, and departure day is Thursday, August 12th.</p>
+          <h3 class="sub-h" style="margin-top:14px">Price</h3>
+          <p>The price depends on how many people enroll, and everyone pays the same price. The larger the group, the lower the price for all. The program runs with a minimum of 8 participants.</p>
+          <dl class="facts">
+            <dt>8–9 participants</dt><dd>$3,950</dd>
+            <dt>10–11 participants</dt><dd>$3,750</dd>
+            <dt>12–13 participants</dt><dd>$3,600</dd>
+            <dt>14–15 participants</dt><dd>$3,500</dd>
+          </dl>
+          <p>Every price includes a single room at Villa Lante. If you plan to share a room, we offer a discount of up to $450. Please inquire for more. Prices do not include airfare.</p>
+          <p>Planning to bring family? We would be thrilled to host you <em>and</em> your family. <a href="#feedback" style="text-decoration:underline">Get in touch</a> and we&rsquo;ll work out the details with you.</p>
           <p>Deposit <span class="tbd">amount and due date</span>.</p>
         </div>
       </div>
+      </details>
     </div>
   </section>
 
   <section aria-labelledby="incl-h">
     <div class="wrap">
-      <h2 class="section-label" id="incl-h">What the price covers</h2>
+      <details class="reveal-sec">
+      <summary><h2 class="section-label" id="incl-h">What the price covers</h2></summary>
       <div class="two-col">
         <div>
           <h3>Included</h3>
           <ul class="plain">
-            <li>14 nights of accommodation with breakfast</li>
-            <li>Lunches and dinners during the villa week (except lunches during day trips)</li>
-            <li>The welcome aperitivo and dinner on arrival</li>
-            <li>All classes, site visits and day trips</li>
-            <li>Private coach transfers between Rome and the villa, and for the day trips</li>
+            <li>11 nights in a single room at Villa Lante, with breakfast</li>
+            <li>The welcome aperitivo, a cooking class, and group dinners</li>
+            <li>All classes, site visits and entry tickets</li>
+            <li>Transport for the four day trips</li>
+            <li>A Certificate of Completion</li>
           </ul>
         </div>
         <div>
           <h3>Not included</h3>
           <ul class="plain">
             <li>Flights to and from Italy</li>
-            <li>Lunches and dinners in Rome after the first night</li>
-            <li>Lunches on day trips</li>
+            <li>Other lunches and dinners</li>
             <li>Travel insurance, which we strongly recommend</li>
           </ul>
         </div>
       </div>
+      </details>
     </div>
   </section>
 
