@@ -937,9 +937,19 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
             </div>
             <label id="family-count" hidden>How many family members?<input type="number" name="family" min="1" max="10" value="1"></label>
           </div>
-          <label>Room preference<select name="room"><option selected>Single</option><option>Shared double</option><option>Shared triple</option><option>Room with my family</option></select></label>
+          <div class="row top" id="famp-row" hidden>
+            <div class="q">Are any of your family members also participants?
+              <div class="choices">
+                <label><input type="radio" name="famparticipants" value="Yes"> Yes</label>
+                <label><input type="radio" name="famparticipants" value="No" checked> No</label>
+              </div>
+            </div>
+            <label id="famp-who" hidden>Who?<input type="text" name="famwho"></label>
+          </div>
+          <label>Room preference<select name="room"><option selected>Single</option><option value="Shared double">Shared double: $280 discount (This is only an option if you have someone in mind to share the room with)</option><option value="Shared triple">Shared triple: $450 discount (This is only an option if you have someone in mind to share the room with)</option><option>Room with my family</option></select></label>
+          <label id="roommate-box" hidden>With whom would you like to share a room?<input type="text" name="roommate"></label>
           <label>Why do you want to join?<textarea name="why"></textarea></label>
-          <label>How did you hear about <i>Nel Mezzo</i>?<input type="text" name="heard"></label>
+          <label><span>How did you hear about <i>Nel Mezzo</i>?</span><input type="text" name="heard"></label>
           <label><span>Dietary needs or allergies <span class="opt">(optional)</span></span><input type="text" name="diet"></label>
         </fieldset>
 
@@ -1553,17 +1563,33 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
       .then(function (r) { return r.json(); })
       .then(function (j) { if (!j.ok) throw new Error(j.error || 'send'); });
   }
+  // family members who are also participants: ask who (required when Yes)
+  var fampRow = document.getElementById('famp-row'), fampWho = document.getElementById('famp-who');
+  function famP() { return val('withfamily') === 'Yes' && val('famparticipants') === 'Yes'; }
+  function syncFamP() {
+    fampRow.hidden = val('withfamily') !== 'Yes';
+    var on = famP(); fampWho.hidden = !on; form.elements.famwho.required = on;
+  }
+  form.querySelectorAll('[name=famparticipants]').forEach(function (r) { r.addEventListener('change', syncFamP); });
   // traveling with family: show the head count and switch the room to a family room
   var famBox = document.getElementById('family-count');
   form.querySelectorAll('[name=withfamily]').forEach(function (r) {
     r.addEventListener('change', function () {
       var yes = val('withfamily') === 'Yes';
       famBox.hidden = !yes;
+      syncFamP();
       if (yes) form.elements.room.value = 'Room with my family';
       else if (form.elements.room.value === 'Room with my family') form.elements.room.value = 'Single';
     });
   });
   function val(n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; }
+  // shared double or triple: ask who they will share with (required)
+  var mateBox = document.getElementById('roommate-box');
+  function isShared() { return /^Shared /.test(val('room')); }
+  function syncMate() { var on = isShared(); mateBox.hidden = !on; form.elements.roommate.required = on; }
+  form.elements.room.addEventListener('change', syncMate);
+  form.querySelectorAll('[name=withfamily]').forEach(function (r) { r.addEventListener('change', syncMate); });
+  syncMate();
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     msg.className = 'app-msg err';
@@ -1572,11 +1598,15 @@ main > section.apply-sec { padding-top: 28px; margin-top: 0; }
     if (!val('level')) { msg.textContent = 'Please choose your level.'; return; }
     var fam = val('withfamily') === 'Yes';
     if (fam && !(parseInt(val('family'), 10) >= 1)) { msg.textContent = 'Please say how many family members are coming.'; form.elements.family.focus(); return; }
+    if (famP() && !val('famwho')) { msg.textContent = 'Please tell us which family members are also participants.'; form.elements.famwho.focus(); return; }
+    if (isShared() && !val('roommate')) { msg.textContent = 'Please tell us with whom you would like to share a room.'; form.elements.roommate.focus(); return; }
     if (!val('why')) { msg.textContent = 'Please tell us why you want to join.'; form.elements.why.focus(); return; }
     if (!val('heard')) { msg.textContent = 'Please tell us how you heard about Nel Mezzo.'; form.elements.heard.focus(); return; }
     var row = { at: new Date().toISOString() };
     ['first', 'last', 'email', 'phone', 'city', 'occupation', 'level', 'studied', 'rome', 'withfamily', 'room', 'diet', 'why', 'heard', 'prefs'].forEach(function (k) { row[k] = val(k); });
     row.family = fam ? val('family') : '0';
+    if (isShared()) row.room += ', sharing with: ' + val('roommate');
+    if (famP()) row.withfamily += ', family members also participating: ' + val('famwho');
     row.updates = form.elements.updates.checked ? 'Yes' : 'No';
     btn.disabled = true; msg.className = 'app-msg'; msg.textContent = 'Sending…';
     // the sheet keeps one application per email; "Keep me updated" adds the email to the sign-ups

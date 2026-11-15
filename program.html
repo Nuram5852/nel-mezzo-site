@@ -394,7 +394,26 @@ figure.feature-fig { margin: 0; min-width: 0; }
   .hero-about > img { position: static; height: auto; }
   .hero-panel { min-height: 0; width: auto; justify-self: stretch; background: rgb(12, 36, 58); padding: 28px max(16px, env(safe-area-inset-left, 0px)); }
 }
-.reveal-sec summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 14px; }
+/* sample days: two schedules side by side, stacked on narrow screens */
+.sd-intro { max-width: 70ch; margin-bottom: 22px; }
+.sd-boxes { display: grid; gap: 20px; }
+@media (min-width: 900px) { .sd-boxes { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+.sd-box { background: var(--tint); padding: clamp(20px, 3vw, 34px); display: grid; gap: 14px; align-content: start; min-width: 0; border-top: 4px solid var(--bar-ink); }
+.sd-box h3 { font: 400 clamp(1.6rem, 1.3rem + 1vw, 2.2rem)/1.1 var(--display); }
+.sd-blurb { max-width: 56ch; }
+.sd-sched { list-style: none; margin: 0; padding: 0; display: grid; }
+.sd-sched li { display: grid; grid-template-columns: 5.6rem 1fr; gap: 4px 18px; padding-block: 14px; border-top: 1px solid rgba(15, 37, 51, .15); }
+.sd-time { font: 600 1.05rem/1.3 var(--label); letter-spacing: .04em; padding-top: 3px; }
+.sd-what { display: grid; gap: 6px; min-width: 0; }
+.sd-what h4, .sd-themes h4 { margin: 0; font: 600 1.15rem/1.2 var(--label); text-transform: uppercase; letter-spacing: .05em; }
+.sd-more { min-height: 1.5em; color: var(--ink-muted); }
+.sd-foot { font-size: 1.05rem; color: var(--ink); }
+.sd-notes { display: grid; gap: 6px; margin-top: 18px; max-width: 80ch; }
+.sd-other { display: grid; gap: 6px; margin-top: 24px; }
+.sd-other p { margin: 0; }
+.sd-what sup, .sd-foot sup { font-size: .7em; }
+.sd-themes { display: grid; gap: 8px; padding-top: 16px; border-top: 2px solid rgba(15, 37, 51, .35); }
+.reveal-sec summary { list-style: none; cursor: pointer; display: flex; width: fit-content; align-items: baseline; gap: 14px; }
 .reveal-sec summary::-webkit-details-marker { display: none; }
 .reveal-sec summary .section-label { margin: 0; }
 .reveal-sec summary::after { content: "+"; font: 300 1.9rem/1 var(--serif); transition: transform .2s; }
@@ -923,7 +942,9 @@ figure.feature-fig { margin: 0; min-width: 0; }
   <section aria-labelledby="about-h">
     <div class="wrap prose-block">
       <h2 class="section-label" id="about-h">The program</h2>
-      <p>Whether a humanities teacher who has taken students to Italy many times and is looking for professional development, a PhD student looking to sharpen their Italian skills for their comps, or any well-seasoned traveller looking to dive deeper into Italian literature and culture, this program promises to be a fantastic time. Held over twelve days and more than 60 contact hours, Italian is the language of everything: classes and seminars, site visits, meals, conversations with locals, and friendships with the other participants. Our goal is measurable progress in fluency. To achieve this, we are looking to make as immersive an environment as possible. We read Italian literature in the places where it was written or set, explore corners of Rome most visitors never find, and, most importantly, we delight in each linguistic adventure.</p>
+      <p>This program consists of 12 days in the city of Rome and its environs and more than 60 hours of Italian instruction across classroom time, site visits, and group activities. It will be led by two native Italians certified as Italian teachers with decades of experience, and an American Latinist with over five years of experience leading groups on educational trips around Italy.</p>
+      <p>The classroom time will be light and playful, yet intense and effective insofar as Italian will be the only means of communication. The site visits will be focused around themes, and will connect real Italian literature with locations visited. The activities will teach various cultural aspects of Italian life.</p>
+      <p>Of course, it will be the middle of summer. We understand that it will be sweltering. That is why we intend to do as the Italians do and go <i>fuori porta</i> for some much-needed beach and swimming time as often as possible.</p>
     </div>
   </section>
 
@@ -931,34 +952,58 @@ figure.feature-fig { margin: 0; min-width: 0; }
     <div class="wrap prose-block">
       <h2 class="section-label" id="who-h">Who is it for?</h2>
       <p>The program is for Italian learners at the B1 level and above who already have a strong command of the language, and are looking to develop their vocabulary, grammar, and cultural knowledge.</p>
-      <p>Ideal candidates are those seeking a near fully immersive experience.</p>
+      <p>Ideal candidates are those seeking a near fully immersive experience, and are interested in connecting Italian literature with the city of Rome.</p>
+      <p>It is our intention to offer this program as professional development to any teacher who would benefit. Please <a href="#contact" style="text-decoration:underline">reach out to us</a> if you are interested.</p>
+      <p>Also, we welcome applications from any graduate student whose studies would be enhanced by this program.</p>
     </div>
   </section>
 
   <section id="schedule" aria-labelledby="sched-h">
     <div class="wrap">
-      <h2 class="section-label" id="sched-h">Day by day</h2>
+      <h2 class="section-label" id="sched-h">Sample Days</h2>
+      <p class="sd-intro">Below you will find two example schedules, representing the two types of days that we will have: a Rome day, and, as the Italians say, a day <i>fuori porta</i>.</p>
 
-      <div class="week-head">
-        <span class="caps muted">August 1–12</span>
+      <div class="sd-boxes">
+        <article class="sd-box" id="sd-rome">
         <h3>Rome</h3>
-        <p class="rhythm">A typical day: class from 9 to 1, lunch on your own, a site visit from 3 to 5 or 6, then dinner on your own followed by an evening activity. Some days are day trips instead.</p>
+        <p class="sd-blurb">This will be the typical format for our Rome days. The wine tasting and cooking class are special events, and will not occur every day. Typically you will have dinner in the city after the site visit, and an optional evening activity at Villa Lante.</p>
+        <ol class="sd-sched">
+          <li><span class="sd-time">9–1</span><div class="sd-what"><h4>Class</h4>
+            <p class="sd-more">Each class will have multiple sections, ranging from time spent preparing for the day’s site visit to typical grammar lessons with exercises. A large portion of every class will be spent playing fun and creative games during which you will produce a lot of Italian.</p></div></li>
+          <li><span class="sd-time">1–3</span><div class="sd-what"><h4>Lunch in the city<sup>*</sup></h4></div></li>
+          <li><span class="sd-time">3–6</span><div class="sd-what"><h4>Site visit: Working class and Fringes of Society</h4>
+            <p class="sd-more">We will start at the markets of Testaccio (this is also where we recommend lunch be had on this day). Then we will make our way through to see the lotti (residential lots) as seen in the film <i>C’è ancora domani</i>. Afterwards we will head to the Non-Catholic Cemetery to reflect on Pasolini’s poem <i>Le ceneri di Gramsci</i> at the very tomb of Gramsci. Finally we will head to the Aventine Hill to talk about the secession of the plebs, Mithraism, and early Christian Rome. The visit will culminate at the Giardino degli Aranci.</p></div></li>
+          <li><span class="sd-time">6–7</span><div class="sd-what"><h4>Rest</h4></div></li>
+          <li><span class="sd-time">7–8</span><div class="sd-what"><h4>Italian wine tasting and education at VinoRoma<sup>**</sup></h4></div></li>
+          <li><span class="sd-time">8–10</span><div class="sd-what"><h4>Cooking class and dinner at ParlaCucina<sup>**</sup></h4></div></li>
+        </ol>
+        </article>
+        <article class="sd-box" id="sd-fp">
+        <h3>Lago di Bracciano</h3>
+        <p class="sd-blurb">We will have four day trips. Most, if not all, of them will involve swimming of some sort, either at the beach or at some other hidden watering hole.</p>
+        <ol class="sd-sched">
+          <li><span class="sd-time">9–10</span><div class="sd-what"><h4>Transfer to Anguillara Sabazia on Lago di Bracciano</h4>
+            <p class="sd-more">Via private coach</p></div></li>
+          <li><span class="sd-time">10–12</span><div class="sd-what"><h4>Readings on Italian lake life</h4>
+            <p class="sd-more">We will read sections of the Premio Strega finalist novel <i>L’acqua del lago non è mai dolce</i> by Giulia Caminito. This novel is set in the very town that we will be visiting. Our readings will be focused on her descriptions of swimming in Lago di Bracciano, as we ourselves prepare to swim in the same lake. We will then contrast Caminito’s excerpts with some more lighthearted readings about lake life on Lago di Como.</p></div></li>
+          <li><span class="sd-time">12–3</span><div class="sd-what"><h4>Lunch and free time in Anguillara Sabazia<sup>*</sup></h4></div></li>
+          <li><span class="sd-time">3–6</span><div class="sd-what"><h4>Swimming in Lago di Bracciano</h4></div></li>
+          <li><span class="sd-time">6–7</span><div class="sd-what"><h4>Return to Rome</h4>
+            <p class="sd-more">Via private coach</p></div></li>
+          <li><span class="sd-time">7–10</span><div class="sd-what"><h4>Dinner in the city<sup>*</sup></h4></div></li>
+          <li><span class="sd-time">10</span><div class="sd-what"><h4>Evening activity at Villa Lante</h4>
+            <p class="sd-more">We will be learning how to play the Italian card game Scopa!</p></div></li>
+        </ol>
+        </article>
       </div>
-      <ol class="days">
-        <li><span class="d">Sun, Aug 1</span><span class="what">Arrival. Welcome aperitivo with the group.</span></li>
-        <li><span class="d">Mon, Aug 2</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
-        <li><span class="d">Tue, Aug 3</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
-        <li><span class="d">Wed, Aug 4</span><span class="what">Day trip.</span></li>
-        <li><span class="d">Thu, Aug 5</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
-        <li><span class="d">Fri, Aug 6</span><span class="what">Beach day.</span></li>
-        <li><span class="d">Sat, Aug 7</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
-        <li><span class="d">Sun, Aug 8</span><span class="what">Day trip.</span></li>
-        <li><span class="d">Mon, Aug 9</span><span class="what">Morning class, afternoon site visit, evening activity.</span></li>
-        <li><span class="d">Tue, Aug 10</span><span class="what">Day trip.</span></li>
-        <li><span class="d">Wed, Aug 11</span><span class="what">Morning class, afternoon site visit, a last dinner together.</span></li>
-        <li><span class="d">Thu, Aug 12</span><span class="what">Departure.</span></li>
-      </ol>
-      <p class="note">Site visits are currently TBD. We will of course be seeing some of the must-see spots in Rome, but we would also like to focus in on more of the off the beaten path sites. Some potential ideas include: Villa Farnesina, the Botanical Gardens, a tour of the Risorgimento in Rome, Pasolini in Rome, Romanesco poets, etc. Day trips are also TBD; possibilities include Subiaco, Tivoli and Orvieto.</p>
+      <div class="sd-other">
+        <p>Other potential themes for days in Rome: Risorgimento, Romanesco poets, Villa Farnesina, etc.</p>
+        <p>Other potential <i>fuori porta</i> days: Orvieto, Subiaco, Viterbo, etc.</p>
+      </div>
+      <div class="sd-notes">
+        <p class="sd-foot"><sup>*</sup> While most meals are independent, we encourage all participants to spend time in groups and continue speaking in Italian. This allows for more spoken production, which is essential to the learning process.</p>
+        <p class="sd-foot"><sup>**</sup> These events are not confirmed by the listed locations. At this stage they are just ideas that we hope to do.</p>
+      </div>
     </div>
   </section>
 
@@ -971,7 +1016,7 @@ figure.feature-fig { margin: 0; min-width: 0; }
           <h3 class="sub-h">Dates</h3>
           <p>Arrival day is Sunday, August 1st, and departure day is Thursday, August 12th.</p>
           <h3 class="sub-h" style="margin-top:14px">Price</h3>
-          <p>The price depends on how many people enroll, and everyone pays the same price. The larger the group, the lower the price for all. The program runs with a minimum of 8 participants.</p>
+          <p>The program runs with a minimum of 8 participants, but the price will go down as more people enroll.</p>
           <dl class="facts">
             <dt>8–9 participants</dt><dd>$3,950</dd>
             <dt>10–11 participants</dt><dd>$3,750</dd>
@@ -979,8 +1024,8 @@ figure.feature-fig { margin: 0; min-width: 0; }
             <dt>14–15 participants</dt><dd>$3,500</dd>
           </dl>
           <p>Every price includes a single room at Villa Lante. If you plan to share a room, we offer a discount of up to $450. Please inquire for more. Prices do not include airfare.</p>
-          <p>Planning to bring family? We would be thrilled to host you <em>and</em> your family. <a href="#feedback" style="text-decoration:underline">Get in touch</a> and we&rsquo;ll work out the details with you.</p>
-          <p>Deposit <span class="tbd">amount and due date</span>.</p>
+          <p>Planning to bring family? We would be thrilled to host you <em>and</em> your family. <a href="#contact" style="text-decoration:underline">Get in touch</a> and we&rsquo;ll work out the details with you.</p>
+          <p>Deposit: TBD</p>
         </div>
       </div>
       </details>
@@ -996,8 +1041,8 @@ figure.feature-fig { margin: 0; min-width: 0; }
           <h3>Included</h3>
           <ul class="plain">
             <li>11 nights in a single room at Villa Lante, with breakfast</li>
-            <li>The welcome aperitivo, a cooking class, and group dinners</li>
-            <li>All classes, site visits and entry tickets</li>
+            <li>The welcome aperitivo, a cooking class, a wine tasting, and a group dinner at Rimessa Roscioli</li>
+            <li>All classes, site visits, and entry tickets</li>
             <li>Transport for the four day trips</li>
             <li>A Certificate of Completion</li>
           </ul>
@@ -1023,19 +1068,19 @@ figure.feature-fig { margin: 0; min-width: 0; }
           <button type="button" class="portrait bio-open" aria-haspopup="dialog" aria-label="Read the bio"><img src="nick-uram.jpg" alt="" loading="lazy"></button>
           <span class="name">Nick Uram</span>
           <span class="role">Director</span>
-          <template class="bio-tpl"><p><span class="tbd">full bio: background, teaching career, and time in Italy</span></p></template>
+          <template class="bio-tpl"><p>Bio to come</p></template>
         </div>
         <div class="person">
           <button type="button" class="portrait bio-open" aria-haspopup="dialog" aria-label="Read the bio"><span class="none">Photo to come</span></button>
-          <span class="name"><span class="tbd">Teacher's name</span></span>
+          <span class="name">Valeria Cupelli</span>
           <span class="role">Instructor</span>
-          <template class="bio-tpl"><p><span class="tbd">full bio: background, training, and where they teach</span></p></template>
+          <template class="bio-tpl"><p>Bio to come</p></template>
         </div>
         <div class="person">
           <button type="button" class="portrait bio-open" aria-haspopup="dialog" aria-label="Read the bio"><span class="none">Photo to come</span></button>
-          <span class="name"><span class="tbd">Teacher's name</span></span>
+          <span class="name">Manuela Cappellari</span>
           <span class="role">Instructor</span>
-          <template class="bio-tpl"><p><span class="tbd">full bio: background, training, and where they teach</span></p></template>
+          <template class="bio-tpl"><p>Bio to come</p></template>
         </div>
       </div>
       <div class="after-apply"><a class="apply" href="apply.html">Apply now</a></div>
@@ -1045,7 +1090,8 @@ figure.feature-fig { margin: 0; min-width: 0; }
   <section id="feedback" aria-labelledby="fb-h">
     <div class="wrap">
       <h2 class="section-label" id="fb-h">Feedback</h2>
-      <p class="apply-intro">Even if you are not interested in this program as it is, we would still love to hear how you think we could make it more desirable. Leave your feedback here.</p>
+      <p class="apply-intro">We hope to eventually run programs for beginner Italian learners as well. Please leave your name and email if you are interested in staying up to date with our future programs.</p>
+      <p class="apply-intro" style="margin-top:1.6em">In addition, we would also love to know what you think about this program as it is: are there any themes or sites in particular that you would be interested in? Let us know here!</p>
       <form class="app-form fb-form" id="fb-form" novalidate>
       <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <div class="row">
@@ -1649,6 +1695,34 @@ figure.feature-fig { margin: 0; min-width: 0; }
   });
   dlg.querySelector('.bio-close').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+})();
+</script>
+<script>
+(function () {
+  // every block on the program page eases in as it scrolls into view (below the fold only)
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var fold = window.innerHeight || 800;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  var els = [];
+  document.querySelectorAll('main section .wrap > *').forEach(function (el) {
+    if (el.matches('.sd-boxes, .people')) { [].forEach.call(el.children, function (c) { els.push(c); }); return; }
+    if (el.matches('.sd-other, .sd-notes')) { [].forEach.call(el.children, function (c) { els.push(c); }); return; }
+    els.push(el);
+  });
+  document.querySelectorAll('.sd-sched > li, .site-foot .contact > *').forEach(function (el) { els.push(el); });
+  var seen = new Set();
+  els.forEach(function (el) {
+    if (seen.has(el) || el.closest('.hero') || el.tagName === 'DIALOG') return;
+    seen.add(el);
+    if (el.getBoundingClientRect().top < fold) return;
+    el.classList.add('rv');
+    var sib = el.parentElement ? [].indexOf.call(el.parentElement.children, el) : 0;
+    el.style.setProperty('--d', (sib % 3) * 0.08 + 's');
+    io.observe(el);
+  });
 })();
 </script>
 <script>
